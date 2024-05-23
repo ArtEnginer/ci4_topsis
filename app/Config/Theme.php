@@ -1,6 +1,6 @@
 <?php
 
-namespace Mrfrost\Theme\Config;
+namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
 
@@ -23,7 +23,7 @@ class Theme extends BaseConfig
     public $theme  = [
         'landing'       => '',
         'auth'          => '',
-        'panel'         => 'App\Libraries\Theme\Views\Panel\Layout\SBAdmin\\',
+        'panel'         => 'App\Views\Panel\Layout\\',
     ];
 
     public $viewLayout  = [

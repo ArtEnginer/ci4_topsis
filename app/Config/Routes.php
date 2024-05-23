@@ -8,6 +8,20 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+
+$routes->group('panel', static function ($routes) {
+    $routes->get('/', 'Panel\Dashboard::index', ['as' => 'dashboard']);
+    $routes->get('dashboard', 'Panel\Dashboard::index');
+    $routes->get('profile', 'Panel\Profile::index');
+    $routes->get('settings', 'Panel\Settings::index');
+    $routes->get('users', 'Panel\Users::index');
+    $routes->get('roles', 'Panel\Roles::index');
+    $routes->get('permissions', 'Panel\Permissions::index');
+    $routes->get('logs', 'Panel\Logs::index');
+    $routes->get('migrate', 'Panel\Migrate::index');
+});
+
+
 $routes->environment('development', static function ($routes) {
     $routes->get('migrate', [Migrate::class, 'index']);
 });

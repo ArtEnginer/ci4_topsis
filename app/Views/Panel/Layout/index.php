@@ -12,7 +12,7 @@
     <title>Panel</title>
     <!-- Assets -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <link id="theme-style" rel="stylesheet" href="<?= base_url('assets/portal') ?>/css/portal.css">
+    <link id="theme-style" rel="stylesheet" href="<?= base_url('assets') ?>/css/portal.css">
 </head>
 
 <body class="app">
@@ -31,9 +31,7 @@
             <div class="sidepanel-inner d-flex flex-column">
                 <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
                 <div class="app-branding">
-                    <a class="app-logo" href="#!"><img class="logo-icon me-2"
-                            src="<?= base_url('assets/portal') ?>/images/app-logo.svg" alt="logo"><span
-                            class="logo-text">Panel</span></a>
+                    <a class="app-logo" href="#!"><img class="logo-icon me-2" src="<?= base_url('assets') ?>/images/app-logo.svg" alt="logo"><span class="logo-text">Panel</span></a>
 
                 </div>
                 <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
@@ -63,14 +61,11 @@
     </div>
 
     <!-- Assets -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"
-        integrity="sha256-cHVO4dqZfamRhWD7s4iXyaXWVK10odD+qp4xidFzqTI=" crossorigin="anonymous"></script>
-    <script src="<?= base_url('assets/portal') ?>/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js" integrity="sha256-cHVO4dqZfamRhWD7s4iXyaXWVK10odD+qp4xidFzqTI=" crossorigin="anonymous"></script>
+    <script src="<?= base_url('assets') ?>/js/app.js"></script>
 </body>
 
 </html>
