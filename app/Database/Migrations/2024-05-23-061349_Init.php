@@ -2,15 +2,15 @@
 
 namespace App\Database\Migrations;
 
-use CodeIgniter\Database\BaseConnection;
+use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Schema\Blueprint;
 use CodeIgniter\Database\Migration;
-use App\Libraries\DB;
 
 class Init extends Migration
 {
     public function up()
     {
-        DB::schema()->create('tb_kriteria', function ($table) {
+        Capsule::schema()->create('tb_kriteria', function (Blueprint $table) {
             $table->increments('id');
             $table->string('kode');
             $table->string('nama');
@@ -18,7 +18,7 @@ class Init extends Migration
             $table->timestamps();
         });
 
-        DB::schema()->create('tb_sub_kriteria', function ($table) {
+        Capsule::schema()->create('tb_sub_kriteria', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('kriteria_id');
             $table->string('nama');
@@ -26,13 +26,13 @@ class Init extends Migration
             $table->timestamps();
         });
 
-        DB::schema()->create('tb_alternatif', function ($table) {
+        Capsule::schema()->create('tb_alternatif', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
             $table->timestamps();
         });
 
-        DB::schema()->create('tb_nilai', function ($table) {
+        Capsule::schema()->create('tb_nilai', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('alternatif_id');
             $table->integer('kriteria_id');
@@ -43,9 +43,9 @@ class Init extends Migration
 
     public function down()
     {
-        DB::schema()->dropIfExists('tb_kriteria');
-        DB::schema()->dropIfExists('tb_sub_kriteria');
-        DB::schema()->dropIfExists('tb_alternatif');
-        DB::schema()->dropIfExists('tb_nilai');
+        Capsule::schema()->dropIfExists('tb_kriteria');
+        Capsule::schema()->dropIfExists('tb_sub_kriteria');
+        Capsule::schema()->dropIfExists('tb_alternatif');
+        Capsule::schema()->dropIfExists('tb_nilai');
     }
 }
