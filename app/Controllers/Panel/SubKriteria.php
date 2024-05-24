@@ -34,17 +34,14 @@ class SubKriteria extends BaseController
     public function edit($id): string
     {
         $this->data['item'] = SubKriteriaModel::find($id);
-
-        return view('Panel/Page/Kriteria/edit', $this->data);
+        return view('Panel/Page/SubKriteria/edit', $this->data);
     }
 
     // store method to add or update data
     public function storeupdate($id = null)
     {
         $data = $this->request->getPost();
-        $data['kriteria_id'] = $data['kriteria_id'];
 
-        // Check if we are creating a new record or updating an existing one
         if ($id == null) {
             SubKriteriaModel::create($data);
         } else {

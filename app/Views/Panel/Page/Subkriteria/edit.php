@@ -12,9 +12,9 @@
         <div class="card shadow mb-4">
             <div class="card-body">
 
-                <form action="<?= route_to("kriteria.update", $item->id) ?>" method="post">
+                <form action="<?= route_to("kriteria.subkriteria.update", $item->kriteria_id, $item->id) ?>" method="post">
                     <?= csrf_field() ?>
-
+                    <input type="hidden" name="kriteria_id" value="<?= $item->kriteria_id ?>">
                     <div class="mb-3 row">
                         <label for="nama-kriteria" class="col-sm-3 col-form-label">Nama Kriteria</label>
                         <div class="col-sm-9">

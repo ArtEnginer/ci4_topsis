@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\Panel\Perhitungan;
 use Illuminate\Support\Facades\Route;
 ?>
 <ul class="app-menu list-unstyled accordion" id="menu-accordion">
@@ -37,7 +38,7 @@ use Illuminate\Support\Facades\Route;
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link <?= ($active == "penilaian") ? "active" : ""; ?> ?>" href="#!">
+        <a class="nav-link <?= ($active == "penilaian") ? "active" : ""; ?> ?>" href="<?= route_to('penilaian') ?>">
             <span class="nav-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
                     <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
@@ -48,7 +49,7 @@ use Illuminate\Support\Facades\Route;
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link <?= ($active == "perhitungan") ? "active" : ""; ?> ?>" href="#!">
+        <a class="nav-link <?= ($active == "perhitungan") ? "active" : ""; ?> ?>" href="<?= route_to('perhitungan') ?>">
             <span class="nav-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
                     <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />

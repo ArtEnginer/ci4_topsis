@@ -5,10 +5,11 @@
     <div class="inner">
         <div class="app-card-header p-4">
             <div class="app-card-header-title">
-                <h4 class="app-card-title">Data Sub Kriteria <span><?= $kriteria->nama ?></span></h4>
+                <h4 class="app-card-title">Data Penilaian</h4>
+                <p>Silahkan kelola data Penilaian disini</p>
             </div>
             <div class="app-card-header-actions ml-auto">
-                <a href="<?= route_to('kriteria.subkriteria.add', $kriteria->id) ?>" class="btn btn-primary">Tambah Sub Kriteria</a>
+                <a href="<?= route_to('penilaian.add') ?>" class="btn btn-primary">Tambah Penilaian</a>
             </div>
         </div>
         <div class="app-card-body p-3 p-lg-4">
@@ -17,7 +18,6 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Bobot</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -26,13 +26,13 @@
                     <?php foreach ($items as $item) : ?>
                         <tr>
                             <td><?= $no++ ?></td>
-                            <td><?= $item->nama ?></td>
-                            <td><?= $item->bobot ?></td>
+                            <td><?= $item->alternatif->nama ?></td>
                             <td>
-                                <a href="<?= route_to('kriteria.subkriteria.edit', $item->id, $kriteria->id) ?>" class="btn btn-sm btn-warning">Edit</a>
-                                <a href="<?= route_to('kriteria.subkriteria.delete', $item->id, $kriteria->id) ?>" class="btn btn-sm btn-danger">Hapus</a>
-                            </td>
 
+                                <a href="<?= route_to('penilaian.edit', $item->id) ?>" class="btn btn-sm btn-warning">Nilai</a>
+                                <a href="<?= route_to('penilaian.delete', $item->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
+
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -38,9 +38,8 @@ class Init extends Migration
 
         Capsule::schema()->create('tb_penilaian', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('alternatif_id');
-            $table->integer('kriteria_id');
-            $table->integer('sub_kriteria_id');
+            $table->integer('alternatif_id')->unsigned();
+            $table->json('sub_kriteria_id');
             $table->timestamps();
         });
     }
@@ -50,6 +49,6 @@ class Init extends Migration
         Capsule::schema()->dropIfExists('tb_kriteria');
         Capsule::schema()->dropIfExists('tb_sub_kriteria');
         Capsule::schema()->dropIfExists('tb_alternatif');
-        Capsule::schema()->dropIfExists('tb_nilai');
+        Capsule::schema()->dropIfExists('tb_penilaian');
     }
 }

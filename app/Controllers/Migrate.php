@@ -32,7 +32,7 @@ class Migrate extends BaseController
             // $migrate->setNamespace('Mrfrost\GoogleApi')->latest();
             $migrate->setNamespace('App')->latest();
 
-            // $seeder->call('InitSeeder');
+            $seeder->call('Init');
         } catch (Throwable $e) {
             throw new Exception($e->getMessage());
         }

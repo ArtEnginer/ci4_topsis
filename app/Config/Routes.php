@@ -38,6 +38,19 @@ $routes->group('panel', static function ($routes) {
         $routes->post('storeupdate/(:num)', 'Panel\Alternatif::storeupdate/$1', ['as' => 'alternatif.update']);
         $routes->get('delete/(:num)', 'Panel\Alternatif::delete/$1', ['as' => 'alternatif.delete']);
     });
+
+    $routes->group('penilaian', static function ($routes) {
+        $routes->get('/', 'Panel\Penilaian::index', ['as' => 'penilaian']);
+        $routes->get('add', 'Panel\Penilaian::add', ['as' => 'penilaian.add']);
+        $routes->get('edit/(:any)', 'Panel\Penilaian::edit/$1', ['as' => 'penilaian.edit']);
+        $routes->post('storeupdate', 'Panel\Penilaian::storeupdate', ['as' => 'penilaian.store']);
+        $routes->post('storeupdate/(:num)', 'Panel\Penilaian::storeupdate/$1', ['as' => 'penilaian.update']);
+        $routes->get('delete/(:num)', 'Panel\Penilaian::delete/$1', ['as' => 'penilaian.delete']);
+    });
+
+    $routes->group('perhitungan', static function ($routes) {
+        $routes->get('/', 'Panel\Perhitungan::index', ['as' => 'perhitungan']);
+    });
 });
 
 
