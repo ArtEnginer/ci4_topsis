@@ -50,6 +50,7 @@ $routes->group('panel', static function ($routes) {
 
     $routes->group('perhitungan', static function ($routes) {
         $routes->get('/', 'Panel\Perhitungan::index', ['as' => 'perhitungan']);
+        $routes->get('hasil', 'Panel\Perhitungan::hasil', ['as' => 'perhitungan.hasil']);
     });
 });
 
