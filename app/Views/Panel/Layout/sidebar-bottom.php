@@ -1,4 +1,4 @@
-<ul class="app-menu footer-menu list-unstyled">
+<!-- <ul class="app-menu footer-menu list-unstyled">
     <li class="nav-item">
         <a class="nav-link" href="#!">
             <span class="nav-icon">
@@ -13,4 +13,4 @@
             <span class="nav-link-text">Settings</span>
         </a>
     </li>
-</ul>
+</ul> -->

@@ -20,4 +20,9 @@ class PenilaianModel extends Model
     {
         return $this->hasMany(SubKriteriaModel::class, 'id', 'sub_kriteria_id');
     }
+
+    public static function countAll()
+    {
+        return self::count();
+    }
 }

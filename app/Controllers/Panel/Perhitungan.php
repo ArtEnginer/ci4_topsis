@@ -14,13 +14,22 @@ class Perhitungan extends BaseController
     {
         $this->config = config('Theme');
         $this->data['config'] = $this->config;
-        $this->data['active'] = "perhitungan";
     }
 
     public function index(): string
     {
+
         $this->data['title'] = "Perhitungan Topsis";
-        $this->perhitungan();
+        $this->data['active'] = "perhitungan";
+
+        if (PenilaianModel::countAll() == 0) {
+            $this->data['message'] = "Data penilaian masih kosong. Silahkan isi data penilaian terlebih dahulu.";
+            $this->data['is_empty'] = true;
+        } else {
+            $this->data['is_empty'] = false;
+
+            $this->perhitungan();
+        }
 
         return view('Panel/Page/Perhitungan/index', $this->data);
     }
@@ -28,6 +37,7 @@ class Perhitungan extends BaseController
     public function hasil()
     {
         $this->data['title'] = "Hasil Perhitungan Topsis";
+        $this->data['active'] = "hasil";
         $this->perhitungan();
         $this->data['rangking'] = [];
         $i = 1;
@@ -37,6 +47,14 @@ class Perhitungan extends BaseController
         }
 
         return view('Panel/Page/Perhitungan/hasil', $this->data);
+    }
+
+    public function reset()
+    {
+        // Reset the penilaian
+        PenilaianModel::truncate();
+
+        return redirect()->to(route_to('perhitungan'));
     }
 
 
