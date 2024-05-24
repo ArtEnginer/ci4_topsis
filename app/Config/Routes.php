@@ -29,6 +29,15 @@ $routes->group('panel', static function ($routes) {
         $routes->post('subkriteria/storeupdate/(:num)', 'Panel\SubKriteria::storeupdate/$1/$2', ['as' => 'kriteria.subkriteria.update']);
         $routes->get('subkriteria/delete/(:num)', 'Panel\SubKriteria::delete/$1/$2', ['as' => 'kriteria.subkriteria.delete']);
     });
+
+    $routes->group('alternatif', static function ($routes) {
+        $routes->get('/', 'Panel\Alternatif::index', ['as' => 'alternatif']);
+        $routes->get('add', 'Panel\Alternatif::add', ['as' => 'alternatif.add']);
+        $routes->get('edit/(:any)', 'Panel\Alternatif::edit/$1', ['as' => 'alternatif.edit']);
+        $routes->post('storeupdate', 'Panel\Alternatif::storeupdate', ['as' => 'alternatif.store']);
+        $routes->post('storeupdate/(:num)', 'Panel\Alternatif::storeupdate/$1', ['as' => 'alternatif.update']);
+        $routes->get('delete/(:num)', 'Panel\Alternatif::delete/$1', ['as' => 'alternatif.delete']);
+    });
 });
 
 

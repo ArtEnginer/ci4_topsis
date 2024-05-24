@@ -29,10 +29,14 @@ class Init extends Migration
         Capsule::schema()->create('tb_alternatif', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
+            $table->string('nip');
+            $table->string('tempat_lahir');
+            $table->date('tanggal_lahir');
+            $table->string('bidang_tugas');
             $table->timestamps();
         });
 
-        Capsule::schema()->create('tb_nilai', function (Blueprint $table) {
+        Capsule::schema()->create('tb_penilaian', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('alternatif_id');
             $table->integer('kriteria_id');
