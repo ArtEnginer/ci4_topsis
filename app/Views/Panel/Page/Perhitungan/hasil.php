@@ -30,9 +30,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($rangking as $alternatif_id => $rangking) : ?>
+                                <?php
+                                $no = 1;
+                                foreach ($rangking as $alternatif_id => $rangking) : ?>
                                     <tr>
-                                        <td><?= $alternatif_id ?></td>
+                                        <td><?= $no++ ?></td>
                                         <td><?= $alternatif[$alternatif_id]->nama ?></td>
                                         <td><?= $kedekatan[$alternatif_id] ?></td>
                                         <td><?= $rangking ?></td>

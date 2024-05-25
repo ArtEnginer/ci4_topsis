@@ -33,10 +33,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($matriks_keputusan as $key => $value) :
+                                <?php
+                                $no = 1;
+                                foreach ($matriks_keputusan as $key => $value) :
                                     $alternatif = $alternatif->find($key); ?>
                                     <tr>
-                                        <td><?= $alternatif->id ?></td>
+                                        <td><?= $no++ ?></td>
                                         <td><?= $alternatif->nama ?></td>
                                         <?php foreach ($value as $item) : ?>
                                             <td><?= $item ?></td>
@@ -76,10 +78,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($matriks_normalisasi as $key => $value) :
+                                <?php
+                                $no = 1;
+                                foreach ($matriks_normalisasi as $key => $value) :
                                     $alternatif = $alternatif->find($key); ?>
                                     <tr>
-                                        <td><?= $alternatif->id ?></td>
+                                        <td><?= $no++ ?></td>
                                         <td><?= $alternatif->nama ?></td>
                                         <?php foreach ($value as $item) : ?>
                                             <td><?= $item ?></td>
@@ -119,10 +123,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($matriks_y as $key => $value) :
+                                <?php
+                                $no = 1;
+                                foreach ($matriks_y as $key => $value) :
                                     $alternatif = $alternatif->find($key); ?>
                                     <tr>
-                                        <td><?= $alternatif->id ?></td>
+                                        <td><?= $no++ ?></td>
                                         <td><?= $alternatif->nama ?></td>
                                         <?php foreach ($value as $item) : ?>
                                             <td><?= $item ?></td>
@@ -196,10 +202,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($jarak_positif as $key => $value) :
+                                <?php
+                                $no = 1;
+                                foreach ($jarak_positif as $key => $value) :
                                     $alternatif = $alternatif->find($key); ?>
                                     <tr>
-                                        <td><?= $alternatif->id ?></td>
+                                        <td><?= $no++ ?></td>
                                         <td><?= $alternatif->nama ?></td>
                                         <td><?= $value ?></td>
                                         <td><?= $jarak_negatif[$key] ?></td>
@@ -235,10 +243,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($kedekatan as $key => $value) :
+                                <?php
+                                $no = 1;
+                                foreach ($kedekatan as $key => $value) :
                                     $alternatif = $alternatif->find($key); ?>
                                     <tr>
-                                        <td><?= $alternatif->id ?></td>
+                                        <td><?= $no++ ?></td>
                                         <td><?= $alternatif->nama ?></td>
                                         <td><?= $value ?></td>
                                     </tr>
