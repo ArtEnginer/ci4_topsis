@@ -38,7 +38,13 @@ class Perhitungan extends BaseController
     {
         $this->data['title'] = "Hasil Perhitungan Topsis";
         $this->data['active'] = "hasil";
-        $this->perhitungan();
+        if (PenilaianModel::countAll() == 0) {
+            $this->data['message'] = "Data penilaian masih kosong. Silahkan isi data penilaian terlebih dahulu.";
+            $this->data['is_empty'] = true;
+        } else {
+            $this->data['is_empty'] = false;
+            $this->perhitungan();
+        }
         $this->data['rangking'] = [];
         $i = 1;
         foreach ($this->data['kedekatan'] as $alternatif_id => $kedekatan) {

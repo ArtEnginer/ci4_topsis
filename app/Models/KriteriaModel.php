@@ -18,4 +18,8 @@ class KriteriaModel extends Model
     {
         return $this->hasMany(SubKriteriaModel::class, 'id_kriteria', 'id');
     }
+    public static function countAll()
+    {
+        return self::count();
+    }
 }

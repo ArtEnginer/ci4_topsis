@@ -55,6 +55,7 @@ $routes->group('panel', static function ($routes) {
     });
 });
 
+service('auth')->routes($routes);
 
 $routes->environment('development', static function ($routes) {
     $routes->get('migrate', [Migrate::class, 'index']);

@@ -45,10 +45,8 @@ class Penilaian extends BaseController
     // store method to add or update data
     public function storeupdate($id = null)
     {
-
         $data = $this->request->getPost();
         $data['sub_kriteria_id'] = json_encode($data['sub_kriteria_id']);
-
 
         if ($id == null) {
             PenilaianModel::create($data);

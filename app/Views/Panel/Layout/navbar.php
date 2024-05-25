@@ -13,7 +13,7 @@
         <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="<?= base_url('assets') ?>/images/user.png" alt="user profile"></a>
         <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
 
-            <li><a class="dropdown-item" href="#!">Log Out</a></li>
+            <li><a class="dropdown-item" href="<?= route_to('logout') ?>">Log Out</a></li>
         </ul>
     </div>
 </div>

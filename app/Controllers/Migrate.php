@@ -5,6 +5,8 @@ namespace App\Controllers;
 use Exception;
 use Throwable;
 
+use CodeIgniter\Shield\Entities\User;
+
 class Migrate extends BaseController
 {
     public function index()
@@ -28,11 +30,20 @@ class Migrate extends BaseController
             }
 
             $migrate->setNamespace('CodeIgniter\Settings')->latest();
-            // $migrate->setNamespace('CodeIgniter\Shield')->latest();
-            // $migrate->setNamespace('Mrfrost\GoogleApi')->latest();
+            $migrate->setNamespace('CodeIgniter\Shield')->latest();
             $migrate->setNamespace('App')->latest();
 
             $seeder->call('Init');
+            $users = auth()->getProvider();
+            $user = new User([
+                'username' => 'admin',
+                'nama'     => 'Admin',
+                'email'    => 'admin@gmail.com',
+                'password' => '12345678',
+            ]);
+            $users->save($user);
+            $user = $users->findById($users->getInsertID());
+            $user->addGroup('admin');
         } catch (Throwable $e) {
             throw new Exception($e->getMessage());
         }
