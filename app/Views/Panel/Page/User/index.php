@@ -5,11 +5,11 @@
     <div class="inner">
         <div class="app-card-header p-4">
             <div class="app-card-header-title">
-                <h4 class="app-card-title">Data Alternatif</h4>
-                <p>Silahkan kelola data Alternatif disini</p>
+                <h4 class="app-card-title">Data user</h4>
+                <p>Silahkan kelola data user disini</p>
             </div>
             <div class="app-card-header-actions ml-auto">
-                <a href="<?= route_to('alternatif.add') ?>" class="btn btn-primary">Tambah Alternatif</a>
+                <a href="<?= base_url('panel/user/add') ?>" class="btn btn-primary">Tambah user</a>
             </div>
         </div>
         <div class="app-card-body p-3 p-lg-4">
@@ -17,10 +17,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>NIP</th>
-                        <th>Tempat/Tgl Lahir</th>
-                        <th>Bagian Tugas</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -29,17 +28,13 @@
                     <?php foreach ($items as $item) : ?>
                         <tr>
                             <td><?= $no++ ?></td>
-                            <td><?= $item->nama ?></td>
-                            <td><?= $item->nip ?></td>
-                            <td><?= $item->tempat_lahir . "/" . $item->tanggal_lahir ?></td>
-                            <td><?= $item->bidang_tugas ?></td>
+                            <td><?= $item->username ?></td>
+                            <td><?= $item->getEmail($item->id) ?></td>
+                            <td><?= $item->getGroups() ?></td>
                             <td>
-                                <a href="<?= route_to('alternatif.edit', $item->id) ?>" class="btn btn-sm btn-warning">
-                                    <i class="fas fa-edit"></i>
+                                <a href="<?= route_to('user.edit', $item->id) ?>" class="btn btn-sm btn-warning"><i class="fas fa-key"></i>
                                 </a>
-                                <a href="<?= route_to('alternatif.delete', $item->id) ?>" class="btn btn-sm btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </a>
+                                <a href="<?= route_to('user.delete', $item->id) ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

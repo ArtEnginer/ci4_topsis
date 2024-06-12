@@ -53,6 +53,15 @@ $routes->group('panel', static function ($routes) {
         $routes->get('hasil', 'Panel\Perhitungan::hasil', ['as' => 'perhitungan.hasil']);
         $routes->get('reset', 'Panel\Perhitungan::reset', ['as' => 'perhitungan.reset']);
     });
+
+    $routes->group('user', static function ($routes) {
+        $routes->get('/', 'Panel\User::index', ['as' => 'user']);
+        $routes->get('add', 'Panel\User::add', ['as' => 'user.add']);
+        $routes->post('add', 'Panel\User::add', ['as' => 'user.add.store']);
+        $routes->get('edit/(:num)', 'Panel\User::edit/$1', ['as' => 'user.edit']);
+        $routes->post('edit/(:num)', 'Panel\User::edit/$1', ['as' => 'user.edit.store']);
+        $routes->get('delete/(:num)', 'Panel\User::delete/$1', ['as' => 'user.delete']);
+    });
 });
 
 service('auth')->routes($routes);

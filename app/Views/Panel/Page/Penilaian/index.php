@@ -30,7 +30,7 @@
                             <td>
 
                                 <a href="<?= route_to('penilaian.edit', $item->id) ?>" class="btn btn-sm btn-warning">Nilai</a>
-                                <a href="<?= route_to('penilaian.delete', $item->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
+                                <a href="<?= route_to('penilaian.delete', $item->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash rounded"></i> </a>
 
                             </td>
                         </tr>

@@ -37,7 +37,7 @@ class Migrate extends BaseController
             $users = auth()->getProvider();
             $user = new User([
                 'username' => 'admin',
-                'nama'     => 'Admin',
+                'name'     => 'Admin',
                 'email'    => 'admin@gmail.com',
                 'password' => '12345678',
             ]);

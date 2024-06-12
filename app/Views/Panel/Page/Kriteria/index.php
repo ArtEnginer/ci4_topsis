@@ -36,8 +36,8 @@
                                 <a href="<?= base_url('panel/kriteria/' . $item->id . '/subkriteria') ?>" class="btn btn-sm btn-primary"><?= $item->subkriteria_count ?> Sub Kriteria</a>
                             </td>
                             <td>
-                                <a href="<?= route_to('kriteria.edit', $item->id) ?>" class="btn btn-sm btn-warning">Edit</a>
-                                <a href="<?= route_to('kriteria.delete', $item->id) ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                <a href="<?= route_to('kriteria.edit', $item->id) ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> </a>
+                                <a href="<?= route_to('kriteria.delete', $item->id) ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
