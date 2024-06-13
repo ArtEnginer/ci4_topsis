@@ -23,7 +23,6 @@ class User extends BaseController
     public function index()
     {
         $this->data['items'] = $this->userModel->findAll();
-        dd();
         return view('Panel/Page/User/index', $this->data);
     }
 

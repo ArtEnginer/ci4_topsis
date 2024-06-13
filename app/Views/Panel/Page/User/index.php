@@ -19,7 +19,6 @@
                         <th>No</th>
                         <th>Username</th>
                         <th>Email</th>
-                        <th>Role</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -30,7 +29,6 @@
                             <td><?= $no++ ?></td>
                             <td><?= $item->username ?></td>
                             <td><?= $item->getEmail($item->id) ?></td>
-                            <td><?= $item->getGroups() ?></td>
                             <td>
                                 <a href="<?= route_to('user.edit', $item->id) ?>" class="btn btn-sm btn-warning"><i class="fas fa-key"></i>
                                 </a>
