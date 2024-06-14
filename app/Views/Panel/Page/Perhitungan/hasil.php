@@ -31,15 +31,18 @@
                             </thead>
                             <tbody>
                                 <?php
-                                $no = 1;
-                                foreach ($rangking as $alternatif_id => $rangking) : ?>
+                                foreach ($rangking as $key => $value) {
+
+                                ?>
                                     <tr>
-                                        <td><?= $no++ ?></td>
-                                        <td><?= $alternatif[$alternatif_id]->nama ?></td>
-                                        <td><?= $kedekatan[$alternatif_id] ?></td>
-                                        <td><?= $rangking ?></td>
+                                        <td><?= $value['no'] ?></td>
+                                        <td><?= $value['alternatif']->nama ?></td>
+                                        <td><?= $value['kedekatan'] ?></td>
+                                        <td><?= $value['no'] ?></td>
                                     </tr>
-                                <?php endforeach; ?>
+                                <?php
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>

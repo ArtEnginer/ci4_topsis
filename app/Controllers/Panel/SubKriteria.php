@@ -38,14 +38,15 @@ class SubKriteria extends BaseController
     }
 
     // store method to add or update data
-    public function storeupdate($id = null)
+    public function storeupdate($id = null, $sid = null)
     {
         $data = $this->request->getPost();
 
-        if ($id == null) {
+        if ($sid == null) {
             SubKriteriaModel::create($data);
         } else {
-            SubKriteriaModel::find($id)->update($data);
+
+            SubKriteriaModel::find($sid)->update($data);
         }
 
         return redirect()->route('kriteria.subkriteria', [$data['kriteria_id']])->with('message', 'Data berhasil disimpan');

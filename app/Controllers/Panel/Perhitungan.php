@@ -34,26 +34,6 @@ class Perhitungan extends BaseController
         return view('Panel/Page/Perhitungan/index', $this->data);
     }
 
-    public function hasil()
-    {
-        $this->data['title'] = "Hasil Perhitungan Topsis";
-        $this->data['active'] = "hasil";
-        if (PenilaianModel::countAll() == 0) {
-            $this->data['message'] = "Data penilaian masih kosong. Silahkan isi data penilaian terlebih dahulu.";
-            $this->data['is_empty'] = true;
-        } else {
-            $this->data['is_empty'] = false;
-            $this->perhitungan();
-        }
-        $this->data['rangking'] = [];
-        $i = 1;
-        foreach ($this->data['kedekatan'] as $alternatif_id => $kedekatan) {
-            $this->data['rangking'][$alternatif_id] = $i;
-            $i++;
-        }
-
-        return view('Panel/Page/Perhitungan/hasil', $this->data);
-    }
 
     public function reset()
     {
@@ -156,5 +136,29 @@ class Perhitungan extends BaseController
         $this->data['jarak_positif'] = $jarak_positif;
         $this->data['jarak_negatif'] = $jarak_negatif;
         $this->data['kedekatan'] = $kedekatan;
+    }
+
+    public function hasil()
+    {
+        $this->data['title'] = "Hasil Perhitungan Topsis";
+        $this->data['active'] = "hasil";
+        if (PenilaianModel::countAll() == 0) {
+            $this->data['message'] = "Data penilaian masih kosong. Silahkan isi data penilaian terlebih dahulu.";
+            $this->data['is_empty'] = true;
+        } else {
+            $this->data['is_empty'] = false;
+            $this->perhitungan();
+        }
+        $this->data['rangking'] = [];
+        $i = 1;
+        foreach ($this->data['kedekatan'] as $alternatif_id => $kedekatan) {
+            $this->data['rangking'][] = [
+                'no' => $i,
+                'alternatif' => AlternatifModel::find($alternatif_id),
+                'kedekatan' => $kedekatan
+            ];
+            $i++;
+        }
+        return view('Panel/Page/Perhitungan/hasil', $this->data);
     }
 }
