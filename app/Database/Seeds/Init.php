@@ -56,10 +56,12 @@ class Init extends Seeder
         ];
 
         foreach ($sub_kriteria as $row) {
+            $percentageString = ['0-20', '21-40', '41-60', '61-80', '81-100'];
             $data = [
                 'kriteria_id' => $row[0],
                 'nama' => $row[1],
                 'bobot' => $row[2],
+                'percentage' => $percentageString[array_rand($percentageString)],
             ];
 
             $this->db->table('tb_sub_kriteria')->insert($data);

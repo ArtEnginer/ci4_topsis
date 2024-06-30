@@ -35,7 +35,7 @@
                                     <?php foreach ($sub_kriteria as $item) : ?>
                                         <?php if ($item->kriteria_id == $k->id) : ?>
                                             <option value="<?= $item->id ?>" <?= isset($sub_kriteria_id[$k->id]) && $item->id == $sub_kriteria_id[$k->id] ? 'selected' : '' ?>>
-                                                <?= $item->nama ?>
+                                                <?= $item->nama . '(' . $item->percentage . '%)' ?>
                                             </option>
                                         <?php endif; ?>
                                     <?php endforeach; ?>

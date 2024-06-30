@@ -18,6 +18,7 @@
                         <th>No</th>
                         <th>Nama</th>
                         <th>Bobot</th>
+                        <th>Rank Nilai <i>(%)</i></th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -28,6 +29,7 @@
                             <td><?= $no++ ?></td>
                             <td><?= $item->nama ?></td>
                             <td><?= $item->bobot ?></td>
+                            <td><?= $item->percentage ?></td>
                             <td>
                                 <a href="<?= route_to('kriteria.subkriteria.edit', $item->id, $kriteria->id) ?>" class="btn btn-sm btn-warning">Edit</a>
                                 <a href="<?= route_to('kriteria.subkriteria.delete', $item->id, $kriteria->id) ?>" class="btn btn-sm btn-danger">Hapus</a>

@@ -27,6 +27,13 @@
                             <input type="text" class="form-control" name="bobot" id="bobot" value="<?= $item->bobot ?>">
                         </div>
                     </div>
+                    <div class="mb-3 row">
+                        <label for="percentage" class="col-sm-3 col-form-label">percentage</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="percentage" id="percentage" value="<?= $item->percentage ?>">
+                        </div>
+                    </div>
+
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Save</button>

@@ -23,6 +23,7 @@ class Init extends Migration
             $table->integer('kriteria_id');
             $table->string('nama');
             $table->integer('bobot');
+            $table->string('percentage');
             $table->timestamps();
         });
 

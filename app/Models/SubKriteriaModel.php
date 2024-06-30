@@ -12,7 +12,7 @@ class SubKriteriaModel extends Model
     // use HasUuids;
 
     protected $table = 'tb_sub_kriteria';
-    protected $fillable = ['kriteria_id', 'nama', 'bobot', 'created_at', 'updated_at'];
+    protected $fillable = ['kriteria_id', 'nama', 'bobot', 'percentage', 'created_at', 'updated_at'];
     protected $hidden = ['created_at', 'updated_at'];
 
     public function kriteria(): HasMany
