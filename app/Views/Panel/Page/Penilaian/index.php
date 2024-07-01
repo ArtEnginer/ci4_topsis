@@ -8,31 +8,54 @@
                 <h4 class="app-card-title">Data Penilaian</h4>
                 <p>Silahkan kelola data Penilaian disini</p>
             </div>
-            <div class="app-card-header-actions ml-auto">
-                <a href="<?= route_to('penilaian.add') ?>" class="btn btn-primary">Tambah Penilaian</a>
-            </div>
         </div>
         <div class="app-card-body p-3 p-lg-4">
             <table class="table table-striped table-hover table-bordered datatable">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Aksi</th>
+                        <th>Alternatif</th>
+                        <?php foreach ($kriteria as $k) : ?>
+                            <th><?= $k->nama ?></th>
+                        <?php endforeach; ?>
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- form using dropdown -->
                     <?php $no = 1; ?>
-                    <?php foreach ($items as $item) : ?>
+                    <?php foreach ($alternatif as $alt) : ?>
                         <tr>
                             <td><?= $no++ ?></td>
-                            <td><?= $item->alternatif->nama ?></td>
-                            <td>
-
-                                <a href="<?= route_to('penilaian.edit', $item->id) ?>" class="btn btn-sm btn-warning">Nilai</a>
-                                <a href="<?= route_to('penilaian.delete', $item->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash rounded"></i> </a>
-
-                            </td>
+                            <td><?= $alt->nama ?></td>
+                            <?php foreach ($kriteria as $k) : ?>
+                                <td>
+                                    <?php
+                                    // find existing assessment data for the current alternatif and kriteria
+                                    $existingPenilaian = null;
+                                    foreach ($items as $item) {
+                                        $penilaian = json_decode($item->sub_kriteria_id, true);
+                                        if ($item->alternatif_id == $alt->id && isset($penilaian[$k->id])) {
+                                            $existingPenilaian = $penilaian[$k->id];
+                                            break;
+                                        }
+                                    }
+                                    ?>
+                                    <select name="penilaian[<?= $alt->id ?>][<?= $k->id ?>]" class="form-control">
+                                        <?php if ($existingPenilaian) : ?>
+                                            <option value="<?= $existingPenilaian ?>" selected>
+                                                <?= $sub_kriteria[$existingPenilaian]->nama . ' (' . $sub_kriteria[$existingPenilaian]->percentage . '%)' ?>
+                                            </option>
+                                        <?php endif; ?>
+                                        <?php foreach ($sub_kriteria as $sk) : ?>
+                                            <?php if ($sk->kriteria_id == $k->id) : ?>
+                                                <option value="<?= $sk->id ?>">
+                                                    <?= $sk->nama . ' (' . $sk->percentage . '%)' ?>
+                                                </option>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </td>
+                            <?php endforeach; ?>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

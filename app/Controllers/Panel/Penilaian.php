@@ -20,6 +20,10 @@ class Penilaian extends BaseController
     public function index(): string
     {
         $this->data['items'] = PenilaianModel::all();
+        $this->data['kriteria'] = KriteriaModel::all();
+        $this->data['sub_kriteria'] = SubKriteriaModel::all();
+        $this->data['alternatif'] = AlternatifModel::all();
+
 
         return view('Panel/Page/Penilaian/index', $this->data);
     }
