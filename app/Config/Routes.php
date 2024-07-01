@@ -45,6 +45,8 @@ $routes->group('panel', static function ($routes) {
         $routes->get('edit/(:any)', 'Panel\Penilaian::edit/$1', ['as' => 'penilaian.edit']);
         $routes->post('storeupdate', 'Panel\Penilaian::storeupdate', ['as' => 'penilaian.store']);
         $routes->post('storeupdate/(:num)', 'Panel\Penilaian::storeupdate/$1', ['as' => 'penilaian.update']);
+        $routes->post('storeupdate/(:num)', 'Panel\Penilaian::storeupdate/$1', ['as' => 'penilaian.storeupdate']);
+
         $routes->get('delete/(:num)', 'Panel\Penilaian::delete/$1', ['as' => 'penilaian.delete']);
     });
 
